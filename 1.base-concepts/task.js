@@ -10,12 +10,10 @@ function solveEquation(a, b, c) {
     x1 = (-b + Math.sqrt(d))/(2*a);
     x2 = (-b - Math.sqrt(d))/(2*a);
     arr.push(x1,x2);
-    return arr;
   } else if(d === 0){
     x1 = -b/2*a;
     arr.push(x1);
-    return arr;
-   } else if(d < 0)
+   } 
     return arr; 
 }
 
@@ -34,7 +32,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   } else if (amountCheck != Number(amount)) {
     totalAmount = `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`;
     return totalAmount;
-  } else {
+  } 
     let credit = amount - contribution;
     let month = date.getMonth();
     let year = date.getFullYear();
@@ -46,5 +44,4 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     totalAmount = total * monthTest;
 
     return Number(totalAmount.toFixed(2));
-  }
 }
