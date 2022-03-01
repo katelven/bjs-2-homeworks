@@ -1,6 +1,6 @@
 function parseCount(number) {
     let parse = Number.parseInt(number, 10);
-    if (isNan(parse)) {
+    if (isNaN(parse)) {
       throw new Error("Невалидное значение");
     }
     return parse;
@@ -9,7 +9,7 @@ function parseCount(number) {
   function validateCount(number) {
       try {
           return parseCount(number);
-      } catch (Error) {
+      } catch (error) {
         return Error;
       }
   }
@@ -20,10 +20,13 @@ function parseCount(number) {
         if ((a > (b + c)) || (b > (a + c)) || (c > (a + b))) {
           throw new Error("Треугольник с такими сторонами не существует");
         }
+        this.side1 = a;
+        this.side2 = b;
+        this.side3 = c;
       }
     
       getPerimeter() {
-        return a + b + c;
+        return this.side1 + this.side2 + this.side3;
       }
     
       getArea() {
@@ -35,9 +38,8 @@ function parseCount(number) {
     
     function getTriangle(a, b, c) {
       try {
-        let triangle = new Triangle(a, b, c);
-        return triangle;
-      } catch (Error) {
+        return new Triangle(a, b, c);;
+      } catch (error) {
         return {
           getPerimeter() {
             return "Ошибка! Треугольник не существует"
