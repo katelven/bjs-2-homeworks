@@ -10,7 +10,7 @@ function parseCount(number) {
       try {
           return parseCount(number);
       } catch (error) {
-        return Error;
+        return error;
       }
   }
   
@@ -30,8 +30,8 @@ function parseCount(number) {
       }
     
       getArea() {
-        let halfPerimeter = getPerimeter() / 2;
-        let area = Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
+        let halfPerimeter = this.getPerimeter() / 2;
+        let area = Math.sqrt(halfPerimeter * (halfPerimeter - this.side1) * (halfPerimeter - this.side2) * (halfPerimeter - this.side3));
         return Number(area.toFixed(3));
       }
     }
@@ -39,7 +39,7 @@ function parseCount(number) {
     function getTriangle(a, b, c) {
       try {
         return new Triangle(a, b, c);;
-      } catch (error) {
+      } catch {
         return {
           getPerimeter() {
             return "Ошибка! Треугольник не существует"
